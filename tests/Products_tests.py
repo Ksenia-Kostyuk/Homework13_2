@@ -11,4 +11,4 @@ def test_init_product(product_test):
     assert product_test.name == 'Яблоки'
     assert product_test.description == 'Белый налив, сбор 2023 года'
     assert product_test._pay == 70.0
-    assert product_test.in_stock == 50
+    assert product_test.remain == 50
