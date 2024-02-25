@@ -9,9 +9,9 @@ class Category:
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
-        self.products = products
+        self.__products = products
 
 
-    def products_return(self):
-        result = ', '.join(self.products)
+    def get_products(self):
+        result = ', '.join(self.__products)
         return result
