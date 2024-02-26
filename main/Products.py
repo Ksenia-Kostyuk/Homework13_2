@@ -2,7 +2,7 @@ class Product:
     """Описание конкретного товара"""
     name = str
     description = str
-    _pay = float
+    _pay = int
     remain = int
 
     def __init__(self, name, description, pay, remain):
@@ -12,7 +12,6 @@ class Product:
         self.remain = remain
 
 
-    @classmethod
     def new_product(self, product, description, pay, remain):
         used_product = {}
         used_product['product'] = product
@@ -22,8 +21,8 @@ class Product:
         return used_product
 
 
-    def set_pay(self, new_pay, _pay):
+    def set_pay(self, new_pay):
         if new_pay <= 0:
-            return f'Цена {new_pay} введена некорректно'
+            print (f'Цена {new_pay} введена некорректно')
         else:
             self._pay = new_pay
