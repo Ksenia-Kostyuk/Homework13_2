@@ -20,9 +20,3 @@ class Category:
 
     def set_new_product(self, new_product):
         self.__products.append(new_product)
-
-
-
-if __name__ == '__main__':
-    name = Category('Фрукты', 'Сладкое', [{'product': 'Яблоко', 'pay': 10.0, 'remains': 3}])
-    op = Product('Яблоко', 'Сладкое', 10, 3)
