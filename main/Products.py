@@ -21,12 +21,6 @@ class Product:
         return used_product
 
 
-    def set_pay1(self, new_pay):
-        if float(new_pay) <= 0:
-            print(f'Цена введена некорректно')
-        else:
-            self._pay = new_pay
-
     @property
     def get_pay(self):
         return self._pay
