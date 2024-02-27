@@ -12,6 +12,14 @@ class Product:
         self.remain = remain
 
 
+    def __str__(self):
+         return f'{self.name}, {self.pay}. Остаток: {self.remain} шт.'
+
+
+    def __add__(self, other):
+        return self.pay * self.remain + other.pay * other.remain
+
+
     def new_product(self, product, description, pay, remain):
         used_product = {}
         used_product['product'] = product
@@ -26,3 +34,8 @@ class Product:
             print (f'Цена {new_pay} введена некорректно')
         else:
             self._pay = new_pay
+
+if __name__ == '__main__':
+    op1 = Product('Яблоко', 'Спелое', 10, 15)
+    op2 = Product('Апельсин', 'Сладкий', 15, 5)
+    op1 + op2
