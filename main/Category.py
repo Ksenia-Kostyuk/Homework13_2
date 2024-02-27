@@ -14,6 +14,14 @@ class Category:
         self.__products = products
 
 
+    def __len__(self):
+        return len(self.__products)
+
+
+    def __str__(self):
+        return f'{name}, количество продуктов: {len(self.__products)}'
+
+
     def get_products(self):
         for i in self.__products:
             return (f'Продукты:\n{i['product']}, {i['pay']}, остаток {i['remains']}')

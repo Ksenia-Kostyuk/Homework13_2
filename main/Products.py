@@ -12,6 +12,14 @@ class Product:
         self.remain = remain
 
 
+    def __str__(self):
+         return f'{self.name}, {self.pay}. Остаток: {self.remain} шт.'
+
+
+    def __add__(self, other):
+        return self.pay * self.remain + other.pay * other.remain
+
+
     def new_product(self, product, description, pay, remain):
         used_product = {}
         used_product['product'] = product
