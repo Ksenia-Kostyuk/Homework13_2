@@ -34,8 +34,3 @@ class Product:
             print (f'Цена {new_pay} введена некорректно')
         else:
             self._pay = new_pay
-
-if __name__ == '__main__':
-    op1 = Product('Яблоко', 'Спелое', 10, 15)
-    op2 = Product('Апельсин', 'Сладкий', 15, 5)
-    op1 + op2
