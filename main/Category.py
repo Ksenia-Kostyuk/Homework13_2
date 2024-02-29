@@ -1,29 +1,28 @@
 class Category:
     """Описание категории товаров"""
-    name = str
-    description = str
-    __products = list
-    sum_products = 3
-    unique_product = 1
 
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
         self.__products = products
 
-
     def __len__(self):
         return len(self.__products)
 
-
     def __str__(self):
-        return f'{name}, количество продуктов: {len(self.__products)}'
-
+        return f'{self.name}, количество продуктов: {len(self.__products)}'
 
     def get_products(self):
-        for i in self.__products:
-            return (f'Продукты:\n{i['product']}, {i['pay']}, остаток {i['remains']}')
+        result = ''
+        for product in self.__products:
+            result += f'{product.name}, {product.price}, остаток {product.remain}'
+        return result
 
+    @property
+    def products(self):
+        return self.__products
 
-    def set_new_product(self, new_product):
-        self.__products.append(new_product)
+    @products.setter
+    def products(self, new_product):
+        get_object = Product(name=new_product['name'], description=new_product['description'], price=new_product['price'], quantity=new_product['quantity'])
+        self.__products.append(get_object)

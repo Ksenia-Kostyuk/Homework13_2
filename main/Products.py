@@ -1,36 +1,30 @@
 class Product:
     """Описание конкретного товара"""
-    name = str
-    description = str
-    _pay = int
-    remain = int
 
-    def __init__(self, name, description, pay, remain):
+    def __init__(self, name, description, price, remain):
         self.name = name
         self.description = description
-        self._pay = pay
+        self._price = price
         self.remain = remain
 
-
     def __str__(self):
-         return f'{self.name}, {self.pay}. Остаток: {self.remain} шт.'
-
+         return f'{self.name}, {self.price}. Остаток: {self.remain} шт.'
 
     def __add__(self, other):
-        return self.pay * self.remain + other.pay * other.remain
+        return self.price * self.remain + other.price * other.remain
 
+    @classmethod
+    def new_product(cls, name, description, price, remain):
+        cls.new_product = name, description, price, remain
+        return cls(dict(name=name, description=description, price=price, remain=remain))
 
-    def new_product(self, product, description, pay, remain):
-        used_product = {}
-        used_product['product'] = product
-        used_product['description'] = description
-        used_product['pay'] = pay
-        used_product['remain'] = remain
-        return used_product
+    @property
+    def price(self):
+        return self._price
 
-
-    def set_pay(self, new_pay):
-        if new_pay <= 0:
-            print (f'Цена {new_pay} введена некорректно')
+    @price.setter
+    def price(self, new_price):
+        if int(new_price) <= 0:
+            print(f'Цена введена некорректно')
         else:
-            self._pay = new_pay
+            self._price = new_price
