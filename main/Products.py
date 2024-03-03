@@ -11,7 +11,10 @@ class Product:
          return f'{self.name}, {self.price}. Остаток: {self.remain} шт.'
 
     def __add__(self, other):
-        return self.price * self.remain + other.price * other.remain
+        if isinstance(other, type(self)):
+            return self.price * self.remain + other.price * other.remain
+        else:
+            raise TypeError
 
     @classmethod
     def new_product(cls, name, description, price, remain):
@@ -28,3 +31,20 @@ class Product:
             print(f'Цена введена некорректно')
         else:
             self._price = new_price
+
+
+class Smartphones(Product):
+
+    def __init__(self, efficiency, model, memory, color):
+        self.efficiency = efficiency
+        self.model = model
+        self.memory = memory
+        self.color = color
+
+
+class LawnGrass(Product):
+
+    def __init__(self, country_of_origin, germination_time, color):
+        self.country_of_origin = country_of_origin
+        self.germination_time = germination_time
+        self.color = color
