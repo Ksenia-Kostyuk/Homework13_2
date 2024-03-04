@@ -35,7 +35,8 @@ class Product:
 
 class Smartphones(Product):
 
-    def __init__(self, efficiency, model, memory, color):
+    def __init__(self, efficiency, model, memory, color, name, description, price, remain):
+        super().__init__(name, description, price, remain)
         self.efficiency = efficiency
         self.model = model
         self.memory = memory
@@ -44,7 +45,8 @@ class Smartphones(Product):
 
 class LawnGrass(Product):
 
-    def __init__(self, country_of_origin, germination_time, color):
+    def __init__(self, country_of_origin, germination_time, color, name, description, price, remain):
+        super().__init__(name, description, price, remain)
         self.country_of_origin = country_of_origin
         self.germination_time = germination_time
         self.color = color
